@@ -1,0 +1,26 @@
+{
+  "name": "vue-postal",
+  "version": "1.0.0",
+  "description": "A simple message bus for VueJS applications",
+  "module": "vue-postal.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonioaguilar/vue-postal.git"
+  },
+  "author": "Antonio Aguilar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonioaguilar/vue-postal/issues"
+  },
+  "homepage": "https://github.com/antonioaguilar/vue-postal#readme",
+  "devDependencies": {
+    "rollup": "^0.55.5",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-uglify": "^3.0.0"
+  }
+}
