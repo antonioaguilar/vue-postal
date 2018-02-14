@@ -1,6 +1,6 @@
 {
   "name": "vue-postal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple message bus for VueJS applications",
   "module": "vue-postal.js",
   "scripts": {

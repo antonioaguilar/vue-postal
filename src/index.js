@@ -4,13 +4,10 @@ let event = eventBus();
 
 function vuePostal(Vue) {
 
-  // exit if the plugin has already been installed.
   if(vuePostal.installed) return;
 
-  // reset the event bus before using it
   event.reset();
 
-  // extend Vue.prototype
   Object.defineProperty(Vue.prototype, '$event', {
     get: function() {
       let self = this;
@@ -22,9 +19,15 @@ function vuePostal(Vue) {
           });
           return sub;
         },
+        when: function() {
+          let dispose = event.when.apply(event, arguments);
+          self.$on('hook:beforeDestroy', function() {
+            dispose();
+          });
+          return dispose;
+        },
         publish: event.publish.bind(event),
         wiretap: event.wiretap.bind(event),
-        when: event.when.bind(event),
         reset: event.reset
       };
     }
@@ -32,7 +35,6 @@ function vuePostal(Vue) {
 
 }
 
-// install the plugin automatically
 if(typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(vuePostal)
 }
